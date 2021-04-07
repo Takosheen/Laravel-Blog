@@ -16,7 +16,9 @@ class CreatePagesTable extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('body');
+            $table->string('body');
+            //create the relationship between a task and the user that created it
+            $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
         });
     }

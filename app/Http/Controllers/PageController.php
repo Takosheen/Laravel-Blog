@@ -14,9 +14,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('page',[
-            'page' => Page::all()
-        ]);
+        //
     }
 
     /**
@@ -48,9 +46,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        return view('page',[
-            'pages'=>Page::findOrFail($page)
-        ]);
+        //
     }
 
     /**

@@ -20,10 +20,13 @@ Route::get('post', Posts::class);
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/posts',[\App\Http\Controllers\PostsController::class,'index'])->name('public_posts_index');
-Route::get('/posts/{id}',[\App\Http\Controllers\PostsController::class,'show'])->name('public_posts_show');
-Route::get('/page',[\App\Http\Controllers\PageController::class,'index'])->name('public_page_index');
-Route::get('/page/{id}',[\App\Http\Controllers\PageController::class,'show'])->name('public_page_show');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('/posts',[\App\Http\Controllers\PostsController::class,'index'])->name('public_post_index');
+Route::get('/posts/{id}',[\App\Http\Controllers\PostsController::class,'show'])->name('public_posts_show');
+
+Route::get('/pages/',[\App\Http\Controllers\PagesController::class, 'index'])->name('public_pages_index');
+Route::get('/pages/{id}',[\App\Http\Controllers\PagesController::class, 'show'])->name('public_pages_show');
+
+Route::get('post', Posts::class);
